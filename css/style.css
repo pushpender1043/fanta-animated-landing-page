@@ -1,0 +1,335 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #f5f5f5;
+}
+
+/* --- NEW: Custom Cursor --- */
+#cursor {
+    height: 20px;
+    width: 20px;
+    background-color: #ff9900;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 99999;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    transition: transform 0.1s ease;
+}
+
+/* --- NEW: Grain Effect Overlay --- */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.04;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+#main {
+    width: 100%;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+/* Navigation - Glass Effect */
+nav {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5vw;
+    width: 100%;
+    height: 10vh;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* Frosted Glass */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav #logo {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #333;
+    font-family: "EB Garamond", serif;
+}
+
+.cntr-nav {
+    display: flex;
+    gap: 4vw;
+}
+
+.cntr-nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 1.1rem;
+    position: relative;
+}
+
+.cntr-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #000;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.cntr-nav a:hover::after {
+    width: 100%;
+}
+
+nav i {
+    font-size: 1.8rem;
+    color: #333;
+    cursor: pointer;
+}
+
+/* --- Section One --- */
+.one {
+    width: 100%;
+    height: 100vh;
+    /* Improved Gradient */
+    background: radial-gradient(circle at center, #ffbe0b, #ff4500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: visible; 
+    z-index: 20; 
+}
+
+.one h1 {
+    font-size: 28vw;
+    font-family: "EB Garamond", serif;
+    color: #fff;
+    opacity: 0.9;
+    position: absolute;
+    z-index: 0;
+    mix-blend-mode: overlay; /* Blends nicely with background */
+}
+
+/* Images with High Z-Index */
+#fanta {
+    width: 38%;
+    position: absolute;
+    z-index: 999;
+    filter: drop-shadow(10px 10px 30px rgba(0,0,0,0.4));
+}
+
+#orange-cut {
+    width: 18%;
+    position: absolute;
+    top: 12%;
+    left: 30%;
+    z-index: 998;
+    filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.2));
+}
+
+#orange {
+    width: 22%;
+    position: absolute;
+    z-index: 998;
+    top: 55%;
+    right: 28%;
+    filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.2));
+}
+
+#leaf {
+    width: 15%;
+    position: absolute;
+    top: 8%;
+    left: 2%;
+    transform: rotate(60deg);
+    z-index: 1;
+}
+
+#leaf2 {
+    width: 12%;
+    position: absolute;
+    top: 75%;
+    left: 85%;
+    transform: rotate(-90deg);
+    z-index: 1;
+}
+
+#leaf3 {
+    width: 18%;
+    position: absolute;
+    top: 5%;
+    right: 0;
+    z-index: 1;
+}
+
+/* --- Section Two --- */
+.two {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background: #2c1e1e;
+    position: relative;
+    z-index: 5;
+}
+
+.left-two, .right-two {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5vw;
+}
+
+.left-two svg {
+    width: 80%;
+    filter: drop-shadow(0 0 20px rgba(255, 107, 0, 0.6));
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotateX(50deg); }
+    50% { transform: translateY(-20px) rotateX(50deg); }
+}
+
+.right-two h1 {
+    color: #fff;
+    font-size: 5vw;
+    font-family: "EB Garamond", serif;
+    line-height: 1;
+    margin-bottom: 2vh;
+}
+
+.right-two p {
+    color: #dcdcdc;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    width: 90%;
+}
+
+/* --- Section Three --- */
+.three {
+    width: 100%;
+    height: 100vh;
+    background: #2c1e1e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+    position: relative;
+    z-index: 4;
+    overflow: hidden;
+}
+
+/* Updated Card Style with 3D props */
+.card {
+    width: 28vw;
+    height: 70vh;
+    background: #f4f4f4;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 5vh;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    
+    /* Important for Tilt Effect */
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.1s ease; /* Fast transition for mouse follow */
+}
+
+/* Card Hover not needed as JS handles tilt, but good fallback */
+.card:hover {
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+}
+
+.card h1 {
+    font-size: 4vw;
+    font-family: "EB Garamond", serif;
+    color: #333;
+    margin-bottom: 2vh;
+    margin-top: 5vh;
+    transform: translateZ(50px); /* Text pops out in 3D */
+}
+
+.card button {
+    padding: 15px 40px;
+    border-radius: 30px;
+    background: linear-gradient(to right, #ff8c00, #ff4500);
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(255, 69, 0, 0.3);
+    transform: translateZ(30px); /* Button pops out */
+}
+
+.card button:hover {
+    transform: scale(1.05) translateZ(30px);
+    box-shadow: 0 15px 25px rgba(255, 69, 0, 0.5);
+    background: #fff;
+    color: #ff4500;
+}
+
+#cocacola {
+    position: absolute;
+    width: 45%;
+    top: -10%;
+    left: 50%;
+    transform: translate(-50%, 0) translateZ(80px); /* 3D Depth */
+    filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.4));
+}
+
+#pepsi {
+    position: absolute;
+    width: 55%;
+    top: -15%;
+    left: 50%;
+    transform: translate(-50%, 0) translateZ(80px);
+    filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.4));
+}
+
+.lemon1, .lemon2 {
+    position: absolute;
+    width: 20vw;
+    top: -20%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    opacity: 0.8;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 1100px) {
+    .one h1 { font-size: 20vw; }
+    nav { padding: 0 3vw; }
+    .card { width: 30vw; height: 60vh; }
+}
+
+@media (max-width: 768px) {
+    .cntr-nav { display: none; }
+    .two { flex-direction: column; }
+    .left-two, .right-two { width: 100%; height: 50%; align-items: center; text-align: center; }
+    .right-two h1 { font-size: 8vw; }
+    .three { flex-direction: column; height: auto; padding: 10vh 0; gap: 10vh; }
+    .card { width: 80vw; height: 60vh; }
+    #fanta { width: 55%; }
+}
